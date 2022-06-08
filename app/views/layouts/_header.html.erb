@@ -1,0 +1,22 @@
+<header class="container">
+
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">Recipe App</a>
+    </div>
+    <ul class="nav navbar-nav">
+      <li><%= link_to "Food list" %></li>
+      <li><%= link_to 'Recipe lis' %></li>
+      <li><%= link_to "Public Recipe" %></li>
+      <li><%= link_to 'Shopping list' %></li>
+
+    </ul>
+    <ul class="nav navbar-nav navbar-right">
+      <li><%= link_to "Hi, #{current_user.email}", edit_user_registration_path %></li>
+      <li><%= link_to 'Sign Out', destroy_user_session_path, method: :delete %></li>
+    </ul>
+  </div>
+</nav>
+
+</header>
