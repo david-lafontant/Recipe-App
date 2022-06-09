@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  get 'foods/index'
+  get 'foods/show'
+  get 'foods/new'
   devise_for :users
   # get 'users/index'
   # get 'users/show'
