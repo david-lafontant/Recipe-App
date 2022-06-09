@@ -1,0 +1,36 @@
+
+<div>  
+<h2> Create a new recipe</h2>
+  <%= form_with(model: @recipe, url: user_recipes_path(current_user.id)) do |f| %>
+  
+    <div>
+      <%= f.label :name %> 
+      <%= f.text_field :name, placeholder: "Name", autofocus: true %>
+    </div>
+
+    <div>
+      <%= f.label :description %> 
+      <%= f.text_area :description, rows: 4,  placeholder: "Description", autofocus: true %>
+    </div>
+
+    <div>
+      <%= f.label "Preparation time (min):" %> 
+      <%= f.number_field :preparation_time, autofocus: true %>
+    </div>
+
+    <div>
+      <%= f.label "Cooking time (min):" %> 
+      <%= f.number_field :cooking_time, autofocus: true %>
+    </div>
+
+    <div>
+      <%= f.label "Public:" %> 
+      <%= f.check_box :public, autofocus: true %>
+    </div>
+    
+    <div>
+      <%= f.submit %>
+    </div>
+
+  <% end %>
+</div> 

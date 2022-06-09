@@ -1,0 +1,23 @@
+<div>
+	<h2>New Food</h2>
+	<%= form_with(model: @food, url: user_foods_path) do |f| %>
+		<div>
+			<%= f.label :name %>
+			<%= f.text_field :name,   class:"form-control", placeholder: "Enter food name", autofocus: true %>
+		</div>
+        <div>
+			<%= f.label :measurement_unit %>
+            <%= f.text_field :measurement_unit, class:"form-control", placeholder: "Enter measurement unit (e.g: kg, l, unit", autofocus: true %>
+		</div>
+		
+		<div>
+			<%= f.label :price %>
+            <%= f.number_field :price,   class:"form-control", autofocus: true %>
+		</div>
+
+		<div>
+			<%= f.submit class: "btn btn-lg btn-warning submit-btn mt-4" %>
+		</div>
+
+     <% end %>
+</div>
