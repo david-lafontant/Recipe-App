@@ -70,9 +70,9 @@ group :test do
   gem 'webdrivers'
 end
 
-gem 'rspec-rails'
-gem 'ffi'
-gem 'rails-controller-testing'
 gem 'cancancan'
 gem 'devise'
+gem 'ffi'
+gem 'rails-controller-testing'
+gem 'rspec-rails'
 gem 'rubocop'
