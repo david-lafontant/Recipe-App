@@ -72,4 +72,4 @@ end
 
 gem 'devise'
 gem 'rubocop'
-gem 'cancancan
+gem 'cancancan'
