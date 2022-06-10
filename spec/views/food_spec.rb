@@ -3,7 +3,8 @@ require 'rails_helper'
 RSpec.describe 'Food view', type: :feature do
   describe 'Food index page' do
     before(:each) do
-      @user = User.create!(name: 'Esther Alice', email: 'estherAlice@gmail.com', password: 'password', confirmed_at: Time.now)
+      @user = User.create!(name: 'Esther Alice', email: 'estherAlice@gmail.com', password: 'password',
+                           confirmed_at: Time.now)
       @food = Food.create!(user_id: @user.id, name: 'Ground beef', measurement_unit: 'kg', price: 12)
 
       visit 'users/sign_in'
@@ -32,7 +33,8 @@ RSpec.describe 'Food view', type: :feature do
 
   describe 'New food form page' do
     before(:each) do
-      @user = User.create!(name: 'Esther Alice', email: 'estherAlice@gmail.com', password: 'password', confirmed_at: Time.now)
+      @user = User.create!(name: 'Esther Alice', email: 'estherAlice@gmail.com', password: 'password',
+                           confirmed_at: Time.now)
       @food = Food.create!(user_id: @user.id, name: 'Ground beef', measurement_unit: 'kg', price: 12)
 
       visit 'users/sign_in'

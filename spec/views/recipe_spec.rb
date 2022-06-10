@@ -3,7 +3,8 @@ require 'rails_helper'
 RSpec.describe 'User index page', type: :feature do
   describe 'Recipe' do
     before(:each) do
-      @user = User.create!(name: 'Esther Alice', password: '123456', email: 'estherAlice@gmail.com', confirmed_at: Time.now)
+      @user = User.create!(name: 'Esther Alice', password: '123456', email: 'estherAlice@gmail.com',
+                           confirmed_at: Time.now)
       @recipe = Recipe.create! user_id: @user.id, name: 'New recipe name', preparation_time: 20, cooking_time: 40,
                                description: 'Recipe description', public: true
       visit '/users/sign_in'
