@@ -1,2 +1,30 @@
-<h1>ShoppingList#index</h1>
-<p>Find me in app/views/shopping_list/index.html.erb</p>
+
+ 
+  <div>
+    <h1 class="text-center" >Shopping list</h1> 
+  </div>
+
+  <div >
+    <p>Amount of food items: <%= @ingredients.count %> </p>
+    <p>Total value of food needed: <%= @total_price %>$</p>
+  </div>
+
+ <div> 
+  <div>
+    <div>Food</div>
+    <div>Quantity </div>
+    <div>Price </div>
+  </div>
+
+  <% @ingredients.each do |recipe_food| %>
+  <% food = Food.find(recipe_food.food_id) %>
+  <div>
+  <div>
+    <div> <%= Food.find(recipe_food.food_id).name %> </div>
+    <div> <%= recipe_food.quantity %> <%= food.measurement_unit %></div>
+    <div><%= Food.find(recipe_food.food_id).price * recipe_food.quantity%> $</div>
+  </div>
+   </div>
+  <% end %>
+  </div>
+ 
