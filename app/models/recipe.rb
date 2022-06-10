@@ -4,7 +4,7 @@ class Recipe < ActiveRecord::Base
 
   validates :name, presence: true
   validates :description, presence: true
-  
+
   def food_arr(recipe)
     food_arr = []
     recipe_foods = RecipeFood.where(recipe_id: recipe)

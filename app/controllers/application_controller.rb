@@ -9,5 +9,4 @@ class ApplicationController < ActionController::Base
   def after_sign_up_path_for(_resource_or_scope)
     new_user_session
   end
-
 end
