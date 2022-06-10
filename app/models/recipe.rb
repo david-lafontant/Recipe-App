@@ -2,6 +2,9 @@ class Recipe < ActiveRecord::Base
   belongs_to :user
   has_many :recipe_foods, dependent: :destroy
 
+  validates :name, presence: true
+  validates :description, presence: true
+  
   def food_arr(recipe)
     food_arr = []
     recipe_foods = RecipeFood.where(recipe_id: recipe)
