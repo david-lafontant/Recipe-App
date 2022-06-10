@@ -1,2 +1,25 @@
-<h1>RecipeFoods#new</h1>
-<p>Find me in app/views/recipe_foods/new.html.erb</p>
+<div>
+<h2> Foods </h2>
+	<div> 
+	<%= link_to 'New food', new_user_food_path(current_user.id) %>
+	<%= link_to 'Back to recipe', user_recipe_path(current_user.id) %>
+	</div> 
+		
+		<div> 
+				<div> Food </div>
+				<div> Measurement Unit</div>
+				<div> Quantity</div>
+				<div> Actions</div>
+		</div>
+
+		<% @foods.each do |food| %>
+				<%= form_with(model: @recipe_food, url:"/users/#{current_user.id}/recipes/#{@recipe_id}/foods/#{food.id}/recipe_foods"  ) do |f| %>
+					<div> 
+                        <%= food.errors.full_messages.join(", ") if food.errors.any? %>						<div class="col-3"> <%= food.name %> </div>
+						<div> <%= food.measurement_unit%></div>
+						<div> <%= f.number_field :quantity%></div>
+						<div> <%= f.submit %></div>
+					</div>
+			<% end %>
+		<% end %>
+</div>
