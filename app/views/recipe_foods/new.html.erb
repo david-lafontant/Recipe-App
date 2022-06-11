@@ -1,11 +1,13 @@
-<div>
+<div class="w-4/5">
+<div class="flex justify-center">
 <h2> Foods </h2>
-	<div> 
-	<%= link_to 'New food', new_user_food_path(current_user.id) %>
-	<%= link_to 'Back to recipe', user_recipe_path(current_user.id) %>
+</div>
+	<div class= "grid gap-4 grid-cols-2 p-1 mb-4"> 
+	<%= link_to 'New food', new_user_food_url(current_user.id) %>
+	<%= link_to 'Back to recipe', user_recipes_url(current_user.id) %>
 	</div> 
 		
-		<div> 
+		<div class= "grid gap-4 grid-cols-4 p-1 mb-4 text-lg font-semibold"> 
 				<div> Food </div>
 				<div> Measurement Unit</div>
 				<div> Quantity</div>
@@ -15,10 +17,13 @@
 		<% @foods.each do |food| %>
 				<%= form_with(model: @recipe_food, url:"/users/#{current_user.id}/recipes/#{@recipe_id}/foods/#{food.id}/recipe_foods"  ) do |f| %>
 					<div> 
-                        <%= food.errors.full_messages.join(", ") if food.errors.any? %>						<div class="col-3"> <%= food.name %> </div>
-						<div> <%= food.measurement_unit%></div>
-						<div> <%= f.number_field :quantity%></div>
-						<div> <%= f.submit %></div>
+                        <%= food.errors.full_messages.join(", ") if food.errors.any? %>	
+						<div class= "grid gap-4 grid-cols-4 p-1 mb-4 border"> 					
+						<div class="border"> <%= food.name %> </div>
+						<div class="border"> <%= food.measurement_unit%></div>
+						<div class="border"> <%= f.number_field :quantity, placeholder: "Quantity of food" %></div>
+						<div class="border"> <%= f.submit :class => "inline-block px-6 py-2.5 bg-blue-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out" %></div>
+						</div>
 					</div>
 			<% end %>
 		<% end %>
