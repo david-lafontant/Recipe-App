@@ -1,11 +1,13 @@
 
-<div>
-  <h2>Public recipes</h2>
+<div class="w-1/2">
+<div class="flex justify-center">
+  <h2 class="text-xl font-bold">Public recipes</h2>
+</div>
   <% @public_recipes.each do |recipe| %>
-  
-    <div class="col-4  border-end border-2"> 
-      <p><%= link_to recipe.name, user_recipe_path( recipe.user.id, recipe.id  ) %> </p>
-      <p> By: <%= recipe.user.name %> </p>  
+  <div class="border grid gap-4 grid-cols-2 p-1 mb-4">
+    <div> 
+      <p class="text-lg font-bold"><%= link_to recipe.name, user_recipe_path( recipe.user.id, recipe.id  ) %> </p>
+      <p class="text-lg"> By: <%= recipe.user.email %> </p>  
     </div>
 
     <div>
@@ -14,6 +16,6 @@
         <%=  @public_recipe.total_food_price(@public_recipe.food_arr(recipe.id), recipe.id ) %>$
       </p>
     </div>  
-
+</div>
   <% end %>
   </div>

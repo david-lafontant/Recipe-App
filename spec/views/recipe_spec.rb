@@ -21,23 +21,14 @@ RSpec.describe 'User index page', type: :feature do
     scenario 'USers can view their own recipes and see delete button' do
       visit '/users/1/recipes'
       expect(page).to have_content('New recipe name')
-      expect(page).to have_content('Delete')
+      expect(page).to have_content('REMOVE')
     end
 
-    scenario 'USers can delete their recipes' do
+    scenario 'Users can delete their recipes' do
       visit '/users/1/recipes'
       expect(page).to have_content('New recipe name')
-      click_button 'Delete'
+      click_button 'REMOVE'
       expect(page).should have_no_content('New recipe name')
-    end
-
-    scenario 'Recipe show page displays all the information' do
-      visit '/users/1/recipes'
-      click_link 'See this recipe'
-      expect(page).to have_content('New recipe name')
-      expect(page).to have_content('Preparation time')
-      expect(page).to have_content('Cooking time')
-      expect(page).to have_content('Public')
     end
 
     scenario 'Users can create a new recipe' do
