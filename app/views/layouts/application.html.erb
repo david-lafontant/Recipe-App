@@ -18,16 +18,22 @@
       <% if user_signed_in? %>
         <%= render 'layouts/header' %> 
       <% else %>
-      <ul class="nav navbar-nav navbar-right">
-        <li><%= link_to 'Sign In', new_user_session_path, :class => "glyphicon glyphicon-log-in" %></li>
-        <li><%= link_to 'Sign Up', new_user_registration_path, :class => "glyphicon glyphicon-user" %></li>
-      </ul>  
+      <nav class="bg-indigo-700 shadow-lg">
+        <div class="container mx-auto">
+        <div class="sm:flex justify-center">
+          <ul class="text-gray-400 sm:self-center text-xl.border-t.sm:border-none">
+            <li class="sm:inline-block"><%= link_to 'Sign In', new_user_session_path, :class =>"p-3 hover:text-white" %></li>
+            <li class="sm:inline-block"><%= link_to 'Sign Up', new_user_registration_path, :class =>"p-3 hover:text-white" %></li>
+          </ul>  
+        </div>
+        </div>
+      </nav>
       <% end %>
-
+<div class="flex justify-center" >
      <%= yield %>
       <% if flash.any? %>
         <%= render 'layouts/messages' %>
       <% end %>
-
+<div>
   </body>
 </html>
