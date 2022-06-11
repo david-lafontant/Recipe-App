@@ -8,6 +8,7 @@ The Recipe app keeps track of all your recipes, ingredients, and inventory. This
 
 - HTML & CSS
 - JavaScript
+- TailwindCSS
 - Ruby on Rails
 - Rubocop
 - Rspec
