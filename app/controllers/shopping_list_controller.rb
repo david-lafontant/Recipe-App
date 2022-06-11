@@ -1,8 +1,12 @@
 class ShoppingListController < ApplicationController
   def index
-    @recipes = Recipe.where(user_id: current_user.id)
-    @ingredients = RecipeFood.where(recipe_id: @recipes.map(&:id))
-    @foods = Food.where(id: @ingredients.map(&:food_id))
-    @total_price = ShoppingList.new.total_price(@ingredients)
+    @recipe = Recipe.find(params[:recipe_id])
+    @recipe_foods = @recipe.recipe_foods.includes(:food)
+    @total_value = 0
+    @total_items = 0
+    @recipe_foods.each do |f|
+    @total_value += f.quantity * f.food.price
+    @total_items += 1
+    end
   end
 end
