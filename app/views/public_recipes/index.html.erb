@@ -3,7 +3,10 @@
 <div class="flex justify-center">
   <h2 class="text-xl font-bold">Public recipes</h2>
 </div>
-  <% @public_recipes.each do |recipe| %>
+<% if @public_recipes.empty? %>
+<div>There is no recipe in the application. Please add the firts</div>
+<%else %>
+<% @public_recipes.each do |recipe| %>
   <div class="border grid gap-4 grid-cols-2 p-1 mb-4">
     <div> 
       <p class="text-lg font-bold"><%= link_to recipe.name, user_recipe_path( recipe.user.id, recipe.id  ) %> </p>
@@ -18,4 +21,7 @@
     </div>  
 </div>
   <% end %>
+
+<%end %>
+  
   </div>
