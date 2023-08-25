@@ -13,7 +13,7 @@ services:
       - redis
     restart: always
   db:
-    image: postgres:12
+    image: postgres:latest
     environment:Q
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: password
