@@ -1,0 +1,28 @@
+version: "3"
+services:
+  web:
+    image: manikatex/recipe-app:latest
+    environment:
+      RAILS_ENV: production
+      DATABASE_URL: "postgres://postgres:password@db/recipe-app_production"
+      REDIS_URL: "redis://redis:6379/0"
+    ports:
+      - "80:3000"
+    depends_on:
+      - db
+      - redis
+    restart: always
+  db:
+    image: postgres:latest
+    environment:Q
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: recipe-app_production
+    volumes:
+      - db_data:/var/lib/postgresql/data
+    restart: always
+  redis:
+    image: redis:6.0
+    restart: always
+volumes:
+  db_data:
