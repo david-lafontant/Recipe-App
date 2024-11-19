@@ -12,6 +12,12 @@ The Recipe app keeps track of all your recipes, ingredients, and inventory. This
 
 ## Screenshot
 ![GIF](recipe-app.png)
+
+
+## Live demo
+[Live demo](https://my-rails-recipe-1eb027f6e2ea.herokuapp.com/users/sign_in)
+
+
 ## Built With
 
 
